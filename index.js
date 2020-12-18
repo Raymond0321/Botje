@@ -35,6 +35,7 @@ client.on("message", async message => {
             .setTitle('Info Botje')
             .setDescription("Ik ben Botje de Discord Bot")
             .setColor("#0099ff")
+            .addField("Developer","RAYMOND#5754")
             .addField("Help command:", "!help")
             .setThumbnail('https://imgur.com/pbZa52b.png')
             .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
@@ -48,7 +49,7 @@ client.on("message", async message => {
             .setTitle('Help commands')
             .setColor("#FF0000")
             .addField("!info", "Toont de Info over de bot")
-            .addField("resourcepack", "Downloadlink van de Resource pack")
+            .addField("!resourcepack", "Downloadlink van de Resource pack")
             .setThumbnail('https://imgur.com/pbZa52b.png')
             .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
 
@@ -62,7 +63,7 @@ client.on("message", async message => {
 
         if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("sorry jij kan dit niet");
 
-        if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("Geen perms");
+        if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("Geen permissions");
 
         if (!args[1]) return message.reply("Geen gebruiker opgegeven.");
 
