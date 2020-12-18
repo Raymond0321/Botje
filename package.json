@@ -1,0 +1,21 @@
+{
+  "name": "botje_discordbot",
+  "version": "1.0.1",
+  "description": "Botje De Dicord Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "keywords": [
+    "Botje"
+  ],
+  "author": "Raymond0321",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
