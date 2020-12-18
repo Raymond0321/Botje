@@ -56,6 +56,17 @@ client.on("message", async message => {
         // Terug sturen van het bericht
         return message.channel.send(botEmbed);
     }
+    
+    if (command === `${prefix}resourcepack`) {
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle('Resourcepack Download')
+            .setColor("#FF0000")
+            .addField("Downloadlink van de Resource pack", "SOON DE LINK")
+            .setThumbnail('https://imgur.com/pbZa52b.png')
+            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+
+        return message.channel.send(botEmbed);
+    }
 
     if (command === `${prefix}kick`) {
 
