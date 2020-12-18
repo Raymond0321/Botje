@@ -36,7 +36,7 @@ client.on("message", async message => {
             .setTitle('Info Botje')
             .setDescription("Ik ben Botje de Discord Bot")
             .setColor("#0099ff")
-            .addField("Handige Info")
+            .addField("Help command: !help")
             .setThumbnail('https://imgur.com/pbZa52b.png')
             .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
 
