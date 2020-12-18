@@ -31,12 +31,24 @@ client.on("message", async message => {
     }
 
     if (command === `${prefix}info`) {
-        // Embed wat we gaan laten tonen.
         var botEmbed = new discord.MessageEmbed()
             .setTitle('Info Botje')
             .setDescription("Ik ben Botje de Discord Bot")
             .setColor("#0099ff")
             .addField("Help command:", "!help")
+            .setThumbnail('https://imgur.com/pbZa52b.png')
+            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+
+        // Terug sturen van het bericht
+        return message.channel.send(botEmbed);
+    }
+
+    if (command === `${prefix}help`) {
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle('Help commands')
+            .setColor("#FF0000")
+            .addField("!info", "Toont de Info over de bot")
+            .addField("resourcepack", "Downloadlink van de Resource pack")
             .setThumbnail('https://imgur.com/pbZa52b.png')
             .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
 
