@@ -61,7 +61,8 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle('Resourcepack Download')
             .setColor("#FF0000")
-            .addField("Downloadlink van de Resource pack", "SOON DE LINK")
+            .addField("Downloadlink van de Resource pack", https://www.mediafire.com/file/r6f5r6fuuhq99i9/RayTopiaRL_V1.1.mcpack/file)
+            .addField("Pack Versie", "V1.1")
             .setThumbnail('https://imgur.com/pbZa52b.png')
             .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
 
