@@ -57,29 +57,29 @@ client.on("message", async message => {
 
     if(commands) commands.run(bot,message, arguments);
 
-    // if (command === `${prefix}info`) {
-    //     var botEmbed = new discord.MessageEmbed()
-    //         .setTitle('Info Botje')
-    //         .setDescription("Ik ben Botje de Discord Bot")
-    //         .setColor("#0099ff")
-    //         .addField("Developer","RAYMOND#5754")
-    //         .addField("Help command:", "!help")
-    //         .setThumbnail('https://imgur.com/pbZa52b.png')
-    //         .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
-    //     return message.channel.send(botEmbed);
-    // }
+    if (command === `${prefix}info`) {
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle('Info Botje')
+            .setDescription("Ik ben Botje de Discord Bot")
+            .setColor("#0099ff")
+            .addField("Developer","RAYMOND#5754")
+            .addField("Help command:", "!help")
+            .setThumbnail('https://imgur.com/pbZa52b.png')
+            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+        return message.channel.send(botEmbed);
+    }
 
-    // if (command === `${prefix}resourcepack`) {
-    //     var botEmbed = new discord.MessageEmbed()
-    //         .setTitle('Resourcepack Download')
-    //         .setColor("#FF0000")
-    //         .addField("Downloadlink van de Resource pack", "https://www.mediafire.com/file/r6f5r6fuuhq99i9/RayTopiaRL_V1.1.mcpack/file")
-    //         .addField("Pack Versie", "V1.1")
-    //         .setThumbnail('https://imgur.com/pbZa52b.png')
-    //         .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+    if (command === `${prefix}resourcepack`) {
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle('Resourcepack Download')
+            .setColor("#FF0000")
+            .addField("Downloadlink van de Resource pack", "https://www.mediafire.com/file/r6f5r6fuuhq99i9/RayTopiaRL_V1.1.mcpack/file")
+            .addField("Pack Versie", "V1.1")
+            .setThumbnail('https://imgur.com/pbZa52b.png')
+            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
 
-    //     return message.channel.send(botEmbed);
-    // }
+        return message.channel.send(botEmbed);
+    }
 
     if (command === `${prefix}wetboek`) {
         var botEmbed = new discord.MessageEmbed()
