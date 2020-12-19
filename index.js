@@ -69,7 +69,7 @@ client.on("message", async message => {
 
         return message.channel.send(botEmbed);
     }
-    
+
     if (command === `${prefix}wetboek`) {
         var botEmbed = new discord.MessageEmbed()
             .setTitle('Wetboek Download')
