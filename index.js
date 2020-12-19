@@ -24,11 +24,6 @@ client.on("message", async message => {
 
     var command = messageArray[0];
 
-    if (command === `${prefix}hallo`) {
-
-        return message.channel.send("Hallo!!");
-
-    }
 
     if (command === `${prefix}info`) {
         var botEmbed = new discord.MessageEmbed()
@@ -39,8 +34,6 @@ client.on("message", async message => {
             .addField("Help command:", "!help")
             .setThumbnail('https://imgur.com/pbZa52b.png')
             .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
-
-        // Terug sturen van het bericht
         return message.channel.send(botEmbed);
     }
 
@@ -54,7 +47,6 @@ client.on("message", async message => {
             .setThumbnail('https://imgur.com/pbZa52b.png')
             .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
 
-        // Terug sturen van het bericht
         return message.channel.send(botEmbed);
     }
     
