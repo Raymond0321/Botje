@@ -1,7 +1,33 @@
 const discord = require("discord.js");
 const botConfig = require("./config.json");
 
+const fs = require("fs");
+
 const client = new discord.Client();
+bot.commands = new discord.Collection();
+
+fs.readdir("./commands/", (err, files) => {
+
+    if(err) console.log(err);
+
+    var jsfiles = files.filter(f => f.split(".").pop() === "js");
+
+    if(jsfiles.length <=0) {
+        console.log("Geen files gevonden");
+        return;
+    }
+
+    jsfiles.forEach((f, i) => {
+
+        var fileGet = require(`./commands/${f}`);
+        console.log(`Het bestand ${f} is geladen`); 
+        
+        bot.commands.set(fileGet.help.name, fileGet);
+
+    })
+
+});
+
 client.login(process.env.token);
 
 client.on("ready", async () => {
@@ -24,43 +50,36 @@ client.on("message", async message => {
 
     var command = messageArray[0];
 
+    var arguments = messageArray.slice[1];
 
-    if (command === `${prefix}info`) {
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle('Info Botje')
-            .setDescription("Ik ben Botje de Discord Bot")
-            .setColor("#0099ff")
-            .addField("Developer","RAYMOND#5754")
-            .addField("Help command:", "!help")
-            .setThumbnail('https://imgur.com/pbZa52b.png')
-            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
-        return message.channel.send(botEmbed);
-    }
-
-    if (command === `${prefix}help`) {
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle('Help commands')
-            .setColor("#FF0000")
-            .addField("!info", "Toont de Info over de bot")
-            .addField("!wetboek", "Link van Wetboek RayTopia")
-            .addField("!resourcepack", "Downloadlink van de Resource pack")
-            .setThumbnail('https://imgur.com/pbZa52b.png')
-            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
-
-        return message.channel.send(botEmbed);
-    }
     
-    if (command === `${prefix}resourcepack`) {
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle('Resourcepack Download')
-            .setColor("#FF0000")
-            .addField("Downloadlink van de Resource pack", "https://www.mediafire.com/file/r6f5r6fuuhq99i9/RayTopiaRL_V1.1.mcpack/file")
-            .addField("Pack Versie", "V1.1")
-            .setThumbnail('https://imgur.com/pbZa52b.png')
-            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+    var commands = bot.commands.get(command.slice(prefix.length));
 
-        return message.channel.send(botEmbed);
-    }
+    if(commands) commands.run(bot,message, arguments);
+
+    // if (command === `${prefix}info`) {
+    //     var botEmbed = new discord.MessageEmbed()
+    //         .setTitle('Info Botje')
+    //         .setDescription("Ik ben Botje de Discord Bot")
+    //         .setColor("#0099ff")
+    //         .addField("Developer","RAYMOND#5754")
+    //         .addField("Help command:", "!help")
+    //         .setThumbnail('https://imgur.com/pbZa52b.png')
+    //         .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+    //     return message.channel.send(botEmbed);
+    // }
+
+    // if (command === `${prefix}resourcepack`) {
+    //     var botEmbed = new discord.MessageEmbed()
+    //         .setTitle('Resourcepack Download')
+    //         .setColor("#FF0000")
+    //         .addField("Downloadlink van de Resource pack", "https://www.mediafire.com/file/r6f5r6fuuhq99i9/RayTopiaRL_V1.1.mcpack/file")
+    //         .addField("Pack Versie", "V1.1")
+    //         .setThumbnail('https://imgur.com/pbZa52b.png')
+    //         .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+
+    //     return message.channel.send(botEmbed);
+    // }
 
     if (command === `${prefix}wetboek`) {
         var botEmbed = new discord.MessageEmbed()
