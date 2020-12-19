@@ -6,28 +6,6 @@ const fs = require("fs");
 const client = new discord.Client();
 bot.commands = new discord.Collection();
 
-fs.readdir("./commands/", (err, files) => {
-
-    if(err) console.log(err);
-
-    var jsfiles = files.filter(f => f.split(".").pop() === "js");
-
-    if(jsfiles.length <=0) {
-        console.log("Geen files gevonden");
-        return;
-    }
-
-    jsfiles.forEach((f, i) => {
-
-        var fileGet = require(`./commands/${f}`);
-        console.log(`Het bestand ${f} is geladen`); 
-        
-        bot.commands.set(fileGet.help.name, fileGet);
-
-    })
-
-});
-
 client.login(process.env.token);
 
 client.on("ready", async () => {
@@ -50,12 +28,6 @@ client.on("message", async message => {
 
     var command = messageArray[0];
 
-    var arguments = messageArray.slice[1];
-
-    
-    var commands = bot.commands.get(command.slice(prefix.length));
-
-    if(commands) commands.run(bot,message, arguments);
 
     if (command === `${prefix}info`) {
         var botEmbed = new discord.MessageEmbed()
