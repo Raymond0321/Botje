@@ -34,7 +34,20 @@ client.on("message", async message => {
             .addField("Developer","RAYMOND#5754")
             .addField("Help command:", "!help")
             .setThumbnail('https://imgur.com/pbZa52b.png')
-            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+            .setFooter("Botje V1.1.1", "https://imgur.com/pbZa52b.png");
+        return message.channel.send(botEmbed);
+    }
+
+    if (command === `${prefix}help`) {
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle('Help commands')
+            .setColor("#FF0000")
+            .addField("!info", "Toont de Info over de bot")
+            .addField("!wetboek", "Link van Wetboek RayTopia")
+            .addField("!resourcepack", "Downloadlink van de Resource pack")
+            .setThumbnail('https://imgur.com/pbZa52b.png')
+            .setFooter("Botje V1.1.1", "https://imgur.com/pbZa52b.png");
+
         return message.channel.send(botEmbed);
     }
 
@@ -45,7 +58,7 @@ client.on("message", async message => {
             .addField("Downloadlink van de Resource pack", "https://www.mediafire.com/file/r6f5r6fuuhq99i9/RayTopiaRL_V1.1.mcpack/file")
             .addField("Pack Versie", "V1.1")
             .setThumbnail('https://imgur.com/pbZa52b.png')
-            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+            .setFooter("Botje V1.1.1", "https://imgur.com/pbZa52b.png");
 
         return message.channel.send(botEmbed);
     }
@@ -57,7 +70,7 @@ client.on("message", async message => {
             .addField("Link van Wetboek:", "WORD NOG ADDED")
             .addField("Datum van upload", "ADDED WANNEER WETBOEK ADDED")
             .setThumbnail('https://imgur.com/pbZa52b.png')
-            .setFooter("Botje V1.0.1", "https://imgur.com/pbZa52b.png");
+            .setFooter("Botje V1.1.1", "https://imgur.com/pbZa52b.png");
 
         return message.channel.send(botEmbed);
     }
