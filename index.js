@@ -1,10 +1,7 @@
 const discord = require("discord.js");
 const botConfig = require("./config.json");
 
-const fs = require("fs");
-
 const client = new discord.Client();
-bot.commands = new discord.Collection();
 
 client.login(process.env.token);
 
