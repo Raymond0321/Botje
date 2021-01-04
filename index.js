@@ -133,6 +133,62 @@ client.on("message", async message => {
         })
 
     }
+    if (!args[0]) return message.reply("Gebruik sps <steen, papier, schaar>");
+
+    var options = ["steen", "papier", "schaar"];
+
+    var result = options[Math.floor(Math.random() * options.length)];
+
+    if (args[0].toUpperCase() == "STEEN") {
+
+        if (result == "papier") {
+
+            return message.channel.send(`Ik heb ${result} , Ik win`);
+
+        } else if (result == "schaar") {
+
+            return message.channel.send(`Ik heb ${result} , Jij wint`);
+
+        } else if (result == "steen") {
+
+            return message.channel.send(`Ik heb ${result} , Het is gelijkspel`);
+
+        }
+
+    }
+    else if (args[0].toUpperCase() == "PAPIER") {
+
+        if (result == "steen") {
+
+            return message.channel.send(`Ik heb ${result} , Ik win`);
+
+        } else if (result == "schaar") {
+
+            return message.channel.send(`Ik heb ${result} , Jij wint`);
+
+        } else if (result == "papier") {
+
+            return message.channel.send(`Ik heb ${result} , Het is gelijkspel`);
+
+        }
+
+    } else if (args[0].toUpperCase() == "SCHAAR") {
+
+        if (result == "steen") {
+
+            return message.channel.send(`Ik heb ${result} , Ik win`);
+
+        } else if (result == "papier") {
+
+            return message.channel.send(`Ik heb ${result} , Jij wint`);
+
+        } else if (result == "schaar") {
+
+            return message.channel.send(`Ik heb ${result} , Het is gelijkspel`);
+
+        }
+
+    }
 
 
 });
