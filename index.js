@@ -155,7 +155,7 @@ client.on("message", async message => {
         var embedPrompt = new discord.MessageEmbed()
             .setColor("GREEN")
             .setAuthor("Gelieve te reageren binnen 30 sec.")
-            .setDescription(`Wil je ${banUser} kicken?`);
+            .setDescription(`Wil je ${banUser} Bannen?`);
 
         var embed = new discord.MessageEmbed()
             .setColor("#ff0000")
