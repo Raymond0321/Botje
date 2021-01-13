@@ -133,60 +133,63 @@ client.on("message", async message => {
         })
 
     }
-    if (!args[0]) return message.reply("Gebruik sps <steen, papier, schaar>");
 
-    var options = ["steen", "papier", "schaar"];
+    if (command === `${prefix}ban`) {
 
-    var result = options[Math.floor(Math.random() * options.length)];
+        const args = message.content.slice(prefix.length).split(/ +/);
 
-    if (args[0].toUpperCase() == "STEEN") {
+        if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("sorry jij kan dit niet");
 
-        if (result == "papier") {
+        if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("Geen permissions");
 
-            return message.channel.send(`Ik heb ${result} , Ik win`);
+        if (!args[1]) return message.reply("Geen gebruiker opgegeven.");
 
-        } else if (result == "schaar") {
+        if (!args[2]) return message.reply("Gelieve een redenen op te geven.");
 
-            return message.channel.send(`Ik heb ${result} , Jij wint`);
+        var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
 
-        } else if (result == "steen") {
+        var reason = args.slice(2).join(" ");
 
-            return message.channel.send(`Ik heb ${result} , Het is gelijkspel`);
+        if (!banUser) return message.reply("Kan de gebruiker niet vinden.");
 
-        }
+        var embedPrompt = new discord.MessageEmbed()
+            .setColor("GREEN")
+            .setAuthor("Gelieve te reageren binnen 30 sec.")
+            .setDescription(`Wil je ${banUser} kicken?`);
 
-    }
-    else if (args[0].toUpperCase() == "PAPIER") {
+        var embed = new discord.MessageEmbed()
+            .setColor("#ff0000")
+            .setThumbnail(banUser.user.displayAvatarURL)
+            .setFooter(message.member.displayName, message.author.displayAvatarURL)
+            .setTimestamp()
+            .setDescription(`** BANNED:** ${banUser} (${banUser.id})
+            **BANNED door:** ${message.author}
+            **Reden: ** ${reason}`);
 
-        if (result == "steen") {
+        message.channel.send(embedPrompt).then(async msg => {
 
-            return message.channel.send(`Ik heb ${result} , Ik win`);
+            var emoji = await promptMessage(msg, message.author, 30, ["✅", "❌"]);
 
-        } else if (result == "schaar") {
+            if (emoji === "✅") {
 
-            return message.channel.send(`Ik heb ${result} , Jij wint`);
+                msg.delete();
 
-        } else if (result == "papier") {
+                banUser.ban(reason).catch(err => {
+                    if (err) return message.reply("Oh nee! er is iets fout gegaan");
+                });
 
-            return message.channel.send(`Ik heb ${result} , Het is gelijkspel`);
+                message.channel.send(embed);
 
-        }
+            } else if (emoji === "❌") {
 
-    } else if (args[0].toUpperCase() == "SCHAAR") {
+                msg.delete();
 
-        if (result == "steen") {
+                message.reply("Actie geannuleerd").then(m => m.delete(5000));
 
-            return message.channel.send(`Ik heb ${result} , Ik win`);
 
-        } else if (result == "papier") {
+            }
 
-            return message.channel.send(`Ik heb ${result} , Jij wint`);
-
-        } else if (result == "schaar") {
-
-            return message.channel.send(`Ik heb ${result} , Het is gelijkspel`);
-
-        }
+        })
 
     }
 
