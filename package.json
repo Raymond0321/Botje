@@ -1,6 +1,6 @@
 {
   "name": "botje_discordbot",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Botje De Dicord Bot",
   "main": "index.js",
   "scripts": {
