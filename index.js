@@ -175,7 +175,7 @@ client.on("message", async message => {
                 msg.delete();
 
                 banUser.ban(reason).catch(err => {
-                    if (err) return message.reply("Oh nee! er is iets fout gegaan");
+                    if (err) return message.reply("Jammer man! hier heb ik niet zo veel zin in :P");
                 });
 
                 message.channel.send(embed);
