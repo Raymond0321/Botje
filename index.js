@@ -9,7 +9,7 @@ client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
 
-    client.user.setActivity("Raymond's verjaardag vieren!", { type: "PLAYING" });
+    client.user.setActivity("RayTopia Real Life!", { type: "PLAYING" });
 
 });
 
