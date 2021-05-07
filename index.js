@@ -9,7 +9,7 @@ client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
 
-    client.user.setActivity("RayTopia Real Life!", { type: "PLAYING" });
+    client.user.setActivity("RayBull Racing", { type: "Playing" });
 
 });
 
@@ -42,33 +42,9 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle('Help commands')
             .setColor("#FF0000")
-            .addField("!info", "Toont de Info over de bot")
-            .addField("!wetboek", "Link van Wetboek RayTopia")
-            .addField("!resourcepack", "Downloadlink van de Resource pack")
-            .setThumbnail('https://imgur.com/pbZa52b.png')
-            .setFooter("Botje V1.1.1", "https://imgur.com/pbZa52b.png");
-
-        return message.channel.send(botEmbed);
-    }
-
-    if (command === `${prefix}resourcepack`) {
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle('Resourcepack Download')
-            .setColor("#FF0000")
-            .addField("Downloadlink van de Resource pack", "https://www.mediafire.com/file/200t5dluhj3d7nf/RTRL_Pack_V1.2.2.mcpack/file")
-            .addField("Pack Versie", "V1.2.2")
-            .setThumbnail('https://imgur.com/pbZa52b.png')
-            .setFooter("Botje V1.1.1", "https://imgur.com/pbZa52b.png");
-
-        return message.channel.send(botEmbed);
-    }
-
-    if (command === `${prefix}wetboek`) {
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle('Wetboek Download')
-            .setColor("#FF0000")
-            .addField("Link van Wetboek:", "WORD NOG ADDED")
-            .addField("Datum van upload", "ADDED WANNEER WETBOEK ADDED")
+            .addField("COMMAND", "INFO van COMMAND")
+            .addField("COMMAND", "INFO van COMMAND")
+            .addField("COMMAND", "INFO van COMMAND")
             .setThumbnail('https://imgur.com/pbZa52b.png')
             .setFooter("Botje V1.1.1", "https://imgur.com/pbZa52b.png");
 
