@@ -42,7 +42,7 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle('Help commands')
             .setColor("#FF0000")
-            .addField("COMMAND", "INFO van COMMAND")
+            .addField("Info", "Toont info van de Bot")
             .addField("COMMAND", "INFO van COMMAND")
             .addField("COMMAND", "INFO van COMMAND")
             .setThumbnail('https://imgur.com/pbZa52b.png')
