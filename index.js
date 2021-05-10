@@ -9,7 +9,9 @@ client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
 
-    client.user.setActivity("RayBull Racing", { type: "Playing" });
+    client.user.setPresence({ activity: {name: 'Updating'}, status: 'idle'})
+  .then(console.log)
+  .catch(console.error);
 
 });
 
