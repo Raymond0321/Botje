@@ -9,7 +9,7 @@ client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
 
-    client.user.setPresence({ activity: {name: 'Updating'}, status: 'idle'})
+    client.user.setPresence({ activity: {name: 'Updating...'}, status: 'idle'})
   .then(console.log)
   .catch(console.error);
 
