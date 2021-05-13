@@ -9,9 +9,13 @@ client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
 
+<<<<<<< HEAD
     client.user.setPresence({ activity: {name: 'Updating...'}, status: 'idle'})
   .then(console.log)
   .catch(console.error);
+=======
+    client.user.setActivity("RayBull Racing", { type: "Playing" });
+>>>>>>> parent of eb22a19 (Testing new Activity)
 
 });
 
